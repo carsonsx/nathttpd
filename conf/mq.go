@@ -1,23 +1,26 @@
 package conf
 
 import (
-	"fmt"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
-	"os"
+	"github.com/carsonsx/nathttpd/const"
 )
 
-type mqconfig struct {
-	MQUrl  string `yaml:"mqserver"`
-	MQName string `yaml:"mqname"`
+type MQConfig struct {
+	Url      string `yaml:"url"`
+	ReqQueue string `yaml:"request_queue"`
+	ResQueue string `yaml:"response_queue"`
 }
 
-var MQConf = mqconfig{"amqp://localhost:5672/", "http_nat_queue"}
+var MQConf = MQConfig{
+	constant.DEFAULT_CONNECTION_URL,
+	constant.DEFAULT_REQUEST_QUEUE,
+	constant.DEFAULT_RESPONSE_QUEUE,
+}
 
 func LoadConf(path string) {
 	c, err := ioutil.ReadFile(path)
 	if err != nil {
-		fmt.Fprintln(os.Stderr, err)
 		return
 	}
 	yaml.Unmarshal(c, &MQConf)
