@@ -1,0 +1,18 @@
+# this is a template conf.yml file,
+# you need to redefine your own file under
+# project's root
+server:
+  runmode: debug #or debug/test/release
+  port: 8888
+
+database:
+  host: 42.62.96.68
+  name: tako
+  user: tako
+  password: tako
+
+# ext: others configurations, you can put biz config here
+# then retrive by conf.Conf.EXT["key"]
+ext:
+  key: Hello Word!
+  key2: values2
