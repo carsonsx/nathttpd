@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -x
+#set -x
 #set -e
 set -o pipefail
 #
@@ -33,4 +33,5 @@ fi
 docker build -t carsonsx/nathttpd .
 
 # Run
-docker run -itd --name nathttpd --restart=always carsonsx/nathttpd -u amqp://0.0.0.0:5672
+echo "Please run with correct rabbmitmq url:"
+echo "    docker run -itd --name nathttpd --restart=always carsonsx/nathttpd -u amqp://0.0.0.0:5672"
