@@ -73,7 +73,7 @@ func invoke(request message.HttpRequestMessage) string {
 
 	log.Println(response)
 
-	if err != nil && *request.Error != nil {
+	if err != nil && request.Error != nil {
 		return invoke(*request.Error)
 	}
 	if err == nil && request.Next != nil {
