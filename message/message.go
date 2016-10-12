@@ -9,4 +9,5 @@ type HttpRequestMessage struct {
 	FormData url.Values          `json:"formData"`
 	Sync     bool                `json:"sync"`
 	Next     *HttpRequestMessage `json:"next"`
+	Error    *HttpRequestMessage `json:"error"`
 }
