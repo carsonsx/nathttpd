@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#set -x
+set -x
 #set -e
 set -o pipefail
 #
@@ -31,6 +31,7 @@ then
 	docker rmi carsonsx/nathttpd
 fi
 docker build -t carsonsx/nathttpd .
+rm -rf Dockerfile
 
 # Run
 echo "Please run with correct rabbmitmq url:"
